@@ -2,6 +2,7 @@ package org.hs.service;
 
 import java.util.List;
 
+import org.hs.domain.AuthVO;
 import org.hs.domain.EmpCriteria;
 import org.hs.domain.EmployeeVO;
 
@@ -20,4 +21,6 @@ public interface EmpService {
 	public boolean remove(String empnum);
 	
 	public int getTotal(EmpCriteria cri);
+	
+
 }

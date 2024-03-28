@@ -246,7 +246,7 @@
 									<c:forEach var="num" begin="${pageMaker.startPage}"
 										end="${pageMaker.endPage}">
 										<li
-											class="paginate_button  ${pageMaker.cri.deptpageNum == num ? 'active':''} ">
+											class="bg-gray-800 paginate_button  ${pageMaker.cri.deptpageNum == num ? 'active':''} ">
 											<!--active를 사용해서 찐하게 보이도록 함  --> <a href="${num}">${num}</a>
 										</li>
 									</c:forEach>

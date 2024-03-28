@@ -2,6 +2,7 @@ package org.hs.service;
 
 import java.util.List;
 
+import org.hs.domain.AuthVO;
 import org.hs.domain.EmpCriteria;
 import org.hs.domain.EmployeeVO;
 import org.hs.mapper.EmpMapper;
@@ -48,5 +49,5 @@ public class EmpServiceImpl implements EmpService {
 	public int getTotal(EmpCriteria cri) {
 		return mapper.getTotalCount(cri);
 	}
-
+	
 }

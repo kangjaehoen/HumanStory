@@ -14,6 +14,31 @@
 <input type="hidden"name="${_csrf.parameterName}"value="${_csrf.token}"/>
 <button>로그아웃</button>
 </form>
+<!-- 
+<script>
+function.onload = function(){
+	logout();
+}
+
+function logout(){
+	 var form = document.createElement('form');
+     form.method = 'POST';
+     form.action = '/customLogout';
+     
+     var csrfInput = document.createElement('input');
+     csrfInput.type = 'hidden';
+     csrfInput.name = '${_csrf.parameterName}';
+     csrfInput.value = '${_csrf.token}';
+     form.appendChild(csrfInput);
+     
+     document.body.appendChild(form);
+     form.submit();
+}
+</script>
+ -->
+
+
+
 
 </body>
 </html>

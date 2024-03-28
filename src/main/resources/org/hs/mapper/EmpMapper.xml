@@ -150,4 +150,5 @@
 	<delete id="authdelete">
 		delete employee_auth where empNum=#{empNum}
 	</delete>
+	
 </mapper>
