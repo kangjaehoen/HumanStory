@@ -4,6 +4,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.hs.mapper.SystemMapper">
 
+<!-- <resultMap type="EmployeesVO" id="employeesVOResultMap">
+		<id property="empNum" column="empNum"/>
+		<result property="empName" column="empName"/>
+		<result property="pw" column="pw"/>
+		<result property="job" column="job"/>
+		<result property="phoneNum" column="phoneNum"/>
+		<result property="hireDate" column="hireDate"/>
+		<result property="email" column="email"/>
+		<result property="annualLeaveNum" column="annualLeaveNum"/>
+		<result property="address" column="address"/>
+		<result property="workDate" column="workDate"/>
+		<result property="address" column="address"/>
+		<result property="birthDate" column="birthDate"/>
+		<result property="adminNum" column="adminNum"/>
+		<result property="deptNum" column="deptNum"/>
+		<collection property="leaveRecords" ofType="LeaveRecordsVO" resultMap="leaveRecordsVOResultMap"/>
+	</resultMap>
+	
+	<resultMap type="LeaveVO" id="leaveVOResultMap">
+		<id property="leaveNum" column="leaveNum" />
+		<result property="leaveType" column="leaveType"/>
+		<result property="leaveReason" column="leaveReason"/>
+		<result property="proposalDate" column="proposalDate"/>
+		<result property="startDate" column="startDate"/>
+		<result property="endDate" column="endDate"/>
+		<result property="leaveGrnatDay" column="leaveGrnatDay"/>
+		<collection property="leaveRecords" ofType="LeaveRecordsVO" resultMap="leaveRecordsVOResultMap" />
+	</resultMap>
+	
+	<resultMap type="LeaveRecordsVO" id="leaveRecordsVOResultMap">
+		<association property="empNum" resultMap="employeesVOResultMap" />
+		<association property="leaveNum" resultMap="leaveVOResultMap" />
+	</resultMap> -->
+
 
 	<insert id="insertEmpInfo">
 		INSERT INTO employees (empNum, empName, pw, job,
@@ -30,24 +64,26 @@
 		#{deptNum})
 	</insert>
 
-	<select id="getEmployeesToUpdate"
-		resultType="org.hs.domain.EmployeeVO" statementType="STATEMENT">
-		SELECT * FROM
-		employees
-		WHERE TO_CHAR(SYSDATE, 'MMDD') = '0101' AND workDate > 365
-	</select>
 
-
-	<!-- <update id="updateAnnualLeave"> UPDATE employees e SET e.annualLeaveNum 
-		= CASE WHEN e.workDate >= 365 THEN CASE WHEN e.workDate >= 1095 THEN LEAST(25, 
-		(#{annualNum}+1) + FLOOR(((e.workDate - 1095) / 365))) ELSE LEAST(#{annualNum}) 
-		END ELSE CASE WHEN TO_CHAR(SYSDATE, 'MMDD') = #{leaveDay} THEN #{annualNum} 
-		ELSE FLOOR(months_between(SYSDATE, e.hireDate)) END END WHERE e.empNum IN 
-		( SELECT e2.empNum FROM employees e2 INNER JOIN LeaveRecords lr ON e2.empNum 
-		= lr.empNum INNER JOIN Leave l ON lr.leaveNum = l.leaveNum WHERE TO_CHAR(SYSDATE, 
-		'MMDD') = #{leaveDay} ) </update> -->
-
+		
+	<update id="leaveGrantDay">
+		UPDATE leave SET leaveGrantDay=#{leaveDay} WHERE leaveNum  = 1
+	</update>
 	
+	<update id="annulLeaveNumSet">
+		UPDATE leave SET leaveNumSet=#{annualNum} WHERE leaveNum  = 1
+	</update>
+		
+	<select id="leaveGrantDayApply" resultType="org.hs.domain.LeaveVO">
+    	SELECT leaveGrantDay FROM Leave WHERE leaveNum =1
+	</select>
+	
+	<select id="annulLeaveNumSetApply" resultType="org.hs.domain.LeaveVO">
+		SELECT leaveNumSet FROM Leave WHERE leaveNum =1
+	</select>
+	
+	
+
 	<update id="updateAnnualLeave">
 	<![CDATA[ 
 		UPDATE employees
@@ -61,13 +97,14 @@
 				END
 					ELSE
 					CASE
-						WHEN TO_CHAR(SYSDATE, 'MMDD') = #{leaveDay} THEN (#{annualNum})
+						WHEN TO_CHAR(SYSDATE, 'yyyy-MM-DD') = #{leaveDay} THEN (#{annualNum})
 					ELSE FLOOR(months_between(SYSDATE, hireDate))
 						END
 						END	
-					WHERE TO_CHAR(SYSDATE, 'MMDD') = #{leaveDay}
+					WHERE TO_CHAR(SYSDATE, 'yyyy-MM-DD') = #{leaveDay}
 	]]>
-	</update>
+	</update> 
+	
 
 
 </mapper>

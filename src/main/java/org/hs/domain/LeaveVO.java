@@ -1,6 +1,7 @@
 package org.hs.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 import lombok.ToString;
@@ -14,5 +15,6 @@ public class LeaveVO {
 	private Date proposalDate;
 	private Date startDate;
 	private Date endDate;
-	private Date leaveGrantDay;
+	private String leaveGrantDay;
+	private int leaveNumSet;
 }

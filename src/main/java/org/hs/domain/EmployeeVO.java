@@ -12,13 +12,13 @@ public class EmployeeVO {
    private String empNum;
    private String empName;
    private String pw;
-   private String job; // Á÷Ã¥ÀÓ.
+   private String job; // ï¿½ï¿½Ã¥ï¿½ï¿½.
    private int phoneNum;
    private Date hireDate;
    private String email;
    private int annualLeaveNum;
    private String address;
-   private int workDate; // ±Ù¹«ÀÏ
+   private int workDate; // ï¿½Ù¹ï¿½ï¿½ï¿½
    private int birthDate;
    private int adminNum;
    private int authNum;
@@ -26,5 +26,7 @@ public class EmployeeVO {
    private  List<DeptVO>  department; 
    private boolean enabled;
    private List<AuthVO> authList;
-};
+   private List<LeaveRecordsVO> leaveRecords;
+
+}
 

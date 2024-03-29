@@ -26,9 +26,9 @@ public class SystemMapperJUnitTest {
 //	@Test
 //	public void testInsertEmpInfo() {
 //	    EmployeeVO emp = new EmployeeVO();
-//	    emp.setEmpName("침착ㅇㅇ맨");
-//	    emp.setJob("지금 내손을 잡아");
-//	    emp.setPw("사건의 지평선");
+//	    emp.setEmpName("침착ㅇㅇ맨123");
+//	    emp.setJob("지금 내손을 잡아123");
+//	    emp.setPw("사건의 지평선123");
 //	    emp.setPhoneNum(72127);
 //	    emp.setAnnualLeaveNum(1);
 //	    emp.setBirthDate(93075);
@@ -36,7 +36,7 @@ public class SystemMapperJUnitTest {
 //	    emp.setAuthNum(18);
 //	    emp.setDeptNum(18);
 //	    emp.setWorkDate(200);
-//
+
 //	    mapper.insertEmpInfo(emp);
 //	}
 //	
@@ -54,13 +54,32 @@ public class SystemMapperJUnitTest {
 //	         log.info(emp);    
 //	    }
 
+//	@Test
+//	public void testUpdateAnnualLeave() {
+//		AnnualLeaveDTO dto = new AnnualLeaveDTO();
+//		dto.setAnnualNum(16);
+//		dto.setLeaveDay("0326");
+//		log.info(dto);
+//		mapper.updateAnnualLeave(dto);
+//	}
+	
+//	@Test
+//	public void testLeaveGrant() {
+//		AnnualLeaveDTO dto = new AnnualLeaveDTO();
+//		dto.setLeaveDay("2024-03-27");
+//				mapper.leaveGrantDay(dto);
+//		
+//	}
+//	@Test
+//	public void testLeaveGrnatDayApply() {
+//		mapper.leaveGrantDayApply();
+//		
+//	}
 	@Test
-	public void testUpdateAnnualLeave() {
-		AnnualLeaveDTO dto = new AnnualLeaveDTO();
-		dto.setAnnualNum(15);
-		dto.setLeaveDay("0326");
-		log.info(dto);
-		mapper.updateAnnualLeave(dto);
+	public void testleaveGrantDayApply() {
+		LeaveVO leave =mapper.leaveGrantDayApply();
+		log.info(leave);
 	}
+	
 
 }
