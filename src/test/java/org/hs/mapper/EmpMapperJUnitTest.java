@@ -64,7 +64,7 @@ public class EmpMapperJUnitTest {
 //	@Test
 //	public void testUpdate() {
 //		EmployeeVO emp = new EmployeeVO(); 
-//		emp.setEmpNum(2);
+//		emp.setEmpNum("2");
 //		emp.setEmpName("jongwon");
 //	    emp.setJob("´ë¸®");
 //	    emp.setPw("iwantverywell");

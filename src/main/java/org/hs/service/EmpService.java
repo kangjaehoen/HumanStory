@@ -14,7 +14,8 @@ public interface EmpService {
 	public List<EmployeeVO> getList(EmpCriteria cri);
 	
 	public EmployeeVO get(String empNum);
-	
+	public AuthVO authGet(String empNum);
+		
 	public boolean modify(EmployeeVO emp);
 	String empNum="";
 	int empnum=Integer.parseInt(empNum);
@@ -22,5 +23,6 @@ public interface EmpService {
 	
 	public int getTotal(EmpCriteria cri);
 	
+	public boolean authGive(AuthVO auth);
 
 }

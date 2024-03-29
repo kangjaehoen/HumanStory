@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import org.hs.domain.AuthVO;
 import org.hs.domain.EmployeeVO;
 import org.hs.mapper.EmpMapper;
+import org.hs.service.EmpService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,15 +125,52 @@ public class EmployeeTests {
 //	}
 //
 //	
-	@Autowired
-	private EmpMapper mapper;
-	
-	@Test
-	public void testRead() {
-		
-		EmployeeVO vo = mapper.authread("11");
-		log.info(vo);
-		vo.getAuthList().forEach(authVO-> log.info(authVO));
-	}
+//	@Autowired
+//	private EmpMapper mapper;
 //	
+//	@Test
+//	public void testRead() {
+//		
+//		EmployeeVO vo = mapper.authread("11");
+//		log.info(vo);
+//		vo.getAuthList().forEach(authVO-> log.info(authVO));
+//	}
+//	
+//	@Autowired
+//	private EmpMapper empmapper;
+//	@Autowired
+//	private EmpService service;
+	
+//	@Test
+//	public void testmapperUpdate() {
+//		AuthVO vo=new AuthVO();
+//		vo.setEmpNum("2");
+//		vo.setAuth("ROLE_MANAGER");
+//		log.info(vo);
+//		vo=service.get("2", "ROLE_MANAGER");
+//		if(vo==null) {
+//			return;
+//		}
+//		vo.setAuth("ROLE_ADMIN");
+//		log.info(service.authGive(vo));
+		
+//	}
+//	
+	@Autowired
+	private EmpMapper empMapper;
+	@Autowired
+	private EmpService service;
+	@Test
+	public void testAuthVOread() {
+		log.info(empMapper.authVOread("5"));
+		AuthVO vo=service.authGet("5");
+		if(vo==null) {
+			return;
+		}
+		vo.setAuth("ROLE_MANAGER");
+		
+		log.info(service.authGive(vo));
+	}
+
+
 }

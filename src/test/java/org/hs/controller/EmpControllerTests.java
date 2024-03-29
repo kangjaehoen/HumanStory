@@ -31,16 +31,16 @@ public class EmpControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-	@Test
-	public void testList() throws Exception{
-		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/emp/list"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap()
-				);
-		
-	}
+//	@Test
+//	public void testList() throws Exception{
+//		log.info(
+//				mockMvc.perform(MockMvcRequestBuilders.get("/emp/list"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap()
+//				);
+//		
+//	}
 //	@Test
 //	public void testGet()throws Exception{
 //		log.info(mockMvc.perform(MockMvcRequestBuilders
@@ -73,4 +73,6 @@ public class EmpControllerTests {
 //				.param("empNum", "5"))
 //				.andReturn().getModelAndView().getViewName());
 //	}
+	
+	
 }

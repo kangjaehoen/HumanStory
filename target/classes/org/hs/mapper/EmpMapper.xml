@@ -151,4 +151,18 @@
 		delete employee_auth where empNum=#{empNum}
 	</delete>
 	
+	<select id="authVOread" resultType="org.hs.domain.AuthVO">
+    select * from employee_auth 
+    where empNum = #{empNum} 
+</select>
+
+
+	
+	
+	<!-- EmpMapper.xml -->
+<update id="authGive" parameterType="org.hs.domain.AuthVO">
+    UPDATE employee_auth SET auth = #{auth} WHERE empNum = #{empNum}
+</update>
+
+	
 </mapper>

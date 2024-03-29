@@ -49,5 +49,21 @@ public class EmpServiceImpl implements EmpService {
 	public int getTotal(EmpCriteria cri) {
 		return mapper.getTotalCount(cri);
 	}
+
+
+	@Override
+	public boolean authGive(AuthVO auth) {
+		
+		return mapper.authGive(auth)==1;
+	}
+
+	@Override
+	public AuthVO authGet(String empNum) {
+		
+		return mapper.authVOread(empNum);
+	}
+
+
+	
 	
 }

@@ -2,6 +2,7 @@ package org.hs.mapper;
 
 import java.util.List;
 
+import org.hs.domain.AuthVO;
 import org.hs.domain.EmpCriteria;
 import org.hs.domain.EmployeeVO;
 
@@ -12,6 +13,8 @@ public interface EmpMapper{
 	public EmployeeVO read(String empNum);
 	
 	public EmployeeVO authread(String empNum);
+	
+	public AuthVO authVOread(String empNum);
 	
 	public List<EmployeeVO> getListWithPaging(EmpCriteria cri);
 	
@@ -27,5 +30,6 @@ public interface EmpMapper{
 	
 	public void authdelete(String empNum);
 	
+	 public int authGive(AuthVO auth); 
 
 }
