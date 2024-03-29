@@ -3,6 +3,7 @@ package org.hs.domain;
 import java.util.Date;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,13 +13,13 @@ public class EmployeeVO {
    private String empNum;
    private String empName;
    private String pw;
-   private String job; // ��å��.
+   private String job; 
    private int phoneNum;
    private Date hireDate;
    private String email;
    private int annualLeaveNum;
    private String address;
-   private int workDate; // �ٹ���
+   private int workDate; 
    private int birthDate;
    private int adminNum;
    private int authNum;
@@ -27,6 +28,11 @@ public class EmployeeVO {
    private boolean enabled;
    private List<AuthVO> authList;
    private List<LeaveRecordsVO> leaveRecords;
+   private List<EmpAttachVO> empAttach;
 
+ 
+   
 }
+
+
 

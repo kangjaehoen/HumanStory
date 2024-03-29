@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hs.mapper.EmpProFileMapper">
+
+	<resultMap type="org.hs.domain.EmployeeVO" id="managerMap">
+		<id property="empNum" column="empNum" />
+		<result property="empName" column="empName" />
+		<result property="pw" column="pw" />
+		<result property="job" column="job" />
+		<result property="phoneNum" column="phoneNum" />
+		<result property="hireDate" column="hireDate" />
+		<result property="email" column="email" />
+		<result property="annualLeaveNum" column="annualLeaveNum" />
+		<result property="address" column="address" />
+		<result property="workDate" column="workDate" />
+		<result property="birthDate" column="birthDate" />
+		<result property="adminNum" column="adminNum" />
+		<result property="authNum" column="authNum" />
+		<result property="deptNum" column="deptNum" />
+		<collection property="empAttach"
+			ofType="org.hs.domain.EmpAttachVO" resultMap="empProfileMap" />
+	</resultMap>
+
+	<resultMap type="org.hs.domain.EmpAttachVO"
+		id="empProfileMap">
+		<result property="uuid" column="uuid" />
+		<result property="uploadPath" column="uploadPath" />
+		<result property="fileName" column="fileName" />
+		<result property="fileType" column="fileType" />
+		<result property="empNum" column="empNum" />
+	</resultMap>
+
+	<select id="empProFile" resultType="org.hs.domain.EmpAttachVO">
+		SELECT * from EmpAttach
+		WHERE empNum = #{empNum}
+	</select>
+
+
+
+</mapper>

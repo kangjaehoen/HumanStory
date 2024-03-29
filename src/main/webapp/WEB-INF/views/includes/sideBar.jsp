@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +60,7 @@
                   <span class="sr-only">Open user menu</span>
                   <img class="w-8 h-8 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
                   <p class="text-1xl text-white dark:text-white p-1 mr-2" role="none">
-                     강재헌
+                    <sec:authentication property="principal.emp.empName"/>
                    </p>
                    
                 </button>
@@ -103,11 +105,12 @@
       
       <div class="flex justify-center items-center mt-8">
          <img class="w-24 h-24 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
+      	 <img th:src="${userProfilePicturePath}" alt="Profile Picture" />
          </div>
          
         
-         <p class="text-xl text-white dark:text-white text-center font-bold mt-2" role="none">강재헌</p>
-         <p class="text-sm text-white dark:text-white text-center" role="none">XXXX@KOTSTA270.COM</p>
+         <p class="text-xl text-white dark:text-white text-center font-bold mt-2" role="none"><sec:authentication property="principal.emp.empName" /></p>
+         <p class="text-sm text-white dark:text-white text-center" role="none"><sec:authentication property="principal.emp.email" /></p>
          
          
  <!-- 프로필 하단 3개 아이콘 -->

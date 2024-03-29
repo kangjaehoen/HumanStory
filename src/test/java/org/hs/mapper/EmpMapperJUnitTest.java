@@ -26,30 +26,30 @@ public class EmpMapperJUnitTest {
 //		mapper.getList().forEach(emp-> log.info(emp));
 //	}
 	
-	@Test
-	public void testInsertEmpInfo() {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.YEAR, 2024);
-		calendar.set(Calendar.MONTH, Calendar.MARCH);
-		calendar.set(Calendar.DAY_OF_MONTH, 25);
-		Date hireDate = calendar.getTime();
-		
-	    EmployeeVO emp = new EmployeeVO();
-	    emp.setEmpName("ddd");
-	    emp.setJob("ĸƾ");
-	    emp.setPw("son7Hoor");
-	    emp.setPhoneNum(7777777);
-	    emp.setHireDate(hireDate);
-	    emp.setAnnualLeaveNum(4);
-	    emp.setBirthDate(930712);
-	    emp.setAdminNum(7);
-	    emp.setAuthNum(7);
-	    emp.setDeptNum(7);
-	    emp.setWorkDate(790);
-	    
-	    mapper.insertEmpInfo(emp);
-	}
-	
+//	@Test
+//	public void testInsertEmpInfo() {
+//		Calendar calendar = Calendar.getInstance();
+//		calendar.set(Calendar.YEAR, 2024);
+//		calendar.set(Calendar.MONTH, Calendar.MARCH);
+//		calendar.set(Calendar.DAY_OF_MONTH, 25);
+//		Date hireDate = calendar.getTime();
+//		
+//	    EmployeeVO emp = new EmployeeVO();
+//	    emp.setEmpName("ddd");
+//	    emp.setJob("ĸƾ");
+//	    emp.setPw("son7Hoor");
+//	    emp.setPhoneNum(7777777);
+//	    emp.setHireDate(hireDate);
+//	    emp.setAnnualLeaveNum(4);
+//	    emp.setBirthDate(930712);
+//	    emp.setAdminNum(7);
+//	    emp.setAuthNum(7);
+//	    emp.setDeptNum(7);
+//	    emp.setWorkDate(790);
+//	    
+//	    mapper.insertEmpInfo(emp);
+//	}
+//	
 //	@Test
 //	public void testRead() {
 //		EmployeeVO emp=mapper.read(1);
@@ -66,7 +66,7 @@ public class EmpMapperJUnitTest {
 //		EmployeeVO emp = new EmployeeVO(); 
 //		emp.setEmpNum(2);
 //		emp.setEmpName("jongwon");
-//	    emp.setJob("�븮");
+//	    emp.setJob("�븮");
 //	    emp.setPw("iwantverywell");
 //	    emp.setPhoneNum(12345678);
 //	    emp.setAnnualLeaveNum(4);

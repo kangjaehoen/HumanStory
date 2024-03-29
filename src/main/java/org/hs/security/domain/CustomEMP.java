@@ -17,15 +17,14 @@ public class CustomEMP extends User {
 	
 	private EmployeeVO emp;
 	
-	
-	
+
 	public CustomEMP(String empNum, String pw, 
 			Collection<? extends GrantedAuthority> authorities) {
 		super(empNum, pw, authorities);
 	}
 	public CustomEMP(EmployeeVO vo) {
 
-		super(vo.getEmpName(),vo.getPw(),vo.getAuthList().stream().map(auth->new SimpleGrantedAuthority(auth.getAuth()))
+		super(vo.getEmpName(),vo.getPw(), vo.getAuthList().stream().map(auth->new SimpleGrantedAuthority(auth.getAuth()))
 				.collect(Collectors.toList()));
 
 		this.emp = vo;

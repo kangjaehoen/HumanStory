@@ -19,7 +19,7 @@
 
 	<select id="getList" resultType="org.hs.domain.EmployeeVO">
 	<![CDATA[
-		select*from employee where adminNum>0
+		select * from employee where adminNum>0
 	]]>
 	</select>
 
@@ -82,7 +82,12 @@
     <result property="adminNum" column="adminNum" />
     <result property="authNum" column="authNum" />
     <result property="deptNum" column="deptNum" />
+    <result property="uuid" column="uuid"/>
+    <result property="uploadPath" column="uploadPath"/>
+    <result property="fileName" column="fileName"/>
+    <result property="fileType" column="fileType"/>
     <collection property="authList" resultMap="authMap"></collection>
+ <!--    <collection property="empAttach" resultMap="empProfileMap"></collection> -->
     <!-- <collection property="deptList" resultMap="EmpDeptResultMap"></collection> -->
 </resultMap>
 
@@ -91,6 +96,15 @@
 		<result property="empNum" column="empNum" />
 		<result property="auth" column="auth" />
 	</resultMap>
+	
+<!-- 	<resultMap type="org.hs.domain.EmpAttachVO" id="empProfileMap">
+		<result property="uuid" column="uuid"/>
+		<result property="uploadPath" column="uploadPath"/>
+		<result property="fileName" column="fileName"/>
+		<result property="fileType" column="fileType"/>
+		<result property="empNum" column="empNum"/>
+
+	</resultMap> -->
 
 	<select id="EmpjoinDept" resultMap="EmpDeptResultMap">
 		SELECT e.EMPNUM, e.EMPNAME, d.DEPTNAME
@@ -102,12 +116,23 @@
 	<select id="authread" resultMap="managerMap">
 
 		SELECT
-		e.empNum, e.EMPNAME, e.pw, e.enabled, ea.auth
+		e.empNum, e.EMPNAME, e.pw, e.enabled, e.email , ea.auth
 		FROM Employee e 
 		JOIN EMPLOYEE_AUTH ea ON e.empNum=ea.empNum
 		where e.empNum=#{empNum}
 
-	</select>
+	</select>  
+	
+<!-- <select id="authread" resultMap="managerMap">
+    SELECT
+    e.empNum, e.empName, e.pw, e.enabled, e.email, ea.auth,
+    et.uuid AS profilePictureUuid, et.uploadPath AS profilePictureUploadPath,
+    et.fileName AS profilePictureFileName, et.fileType AS profilePictureFileType
+    FROM Employee e 
+    JOIN EMPLOYEE_AUTH ea ON e.empNum=ea.empNum
+    JOIN EmpAttach et ON e.empNum=et.empNum
+    WHERE e.empNum=#{empNum}
+ </select>  -->
 
 
 
