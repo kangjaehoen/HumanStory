@@ -217,9 +217,7 @@ label {
 		<div>
 			<a href="/system/annualForm">휴가 일수 부여 설정</a>
 		</div>
-		<div>
-			<a href="/">권한 부여</a>
-		</div>
+		<div><a id="empEmail" href="/email/list">휴가 촉진 대상자</a></div>
 		<div>
 			<a href="/leavePromote/list">휴가 촉진</a>
 		</div>

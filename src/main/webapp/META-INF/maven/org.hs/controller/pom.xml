@@ -185,29 +185,29 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.8</version>
 		</dependency>
-		
-		<!-- security   -->
+
+		<!-- security -->
 		<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-web</artifactId>
-				<version>${org.springframework-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-config</artifactId>
-				<version>${org.springframework-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-core</artifactId>
-				<version>${org.springframework-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-taglibs</artifactId>
-				<version>${org.springframework-version}</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
@@ -228,6 +228,16 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.4</version>
 		</dependency>
+
+
+
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
 
 
 

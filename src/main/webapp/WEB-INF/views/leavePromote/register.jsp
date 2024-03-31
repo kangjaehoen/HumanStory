@@ -225,7 +225,7 @@ label{
 		<div class="navigation">
 			<div><a href="/">메인페이지 </a></div>
 			<div><a href="/system/annualForm">휴가 일수 부여 설정</a></div>
-			<div><a href="/">권한 부여</a></div>
+			<div><a id="empEmail" href="/email/list">휴가 촉진 대상자</a></div>
 			<div><a id="promoteNav" href="/leavePromote/list">휴가 촉진</a></div>
 			<div><a href="/leavePolicy/list">휴가 정책</a></div>
 		</div>

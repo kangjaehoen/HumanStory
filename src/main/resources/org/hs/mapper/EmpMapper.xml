@@ -175,4 +175,8 @@
 	<delete id="authdelete">
 		delete employee_auth where empNum=#{empNum}
 	</delete>
+	
+	<select id="empEmailSend" resultType="org.hs.domain.EmployeeVO">
+		select * from employee where empNum > 0
+	</select>
 </mapper>

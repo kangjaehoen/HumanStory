@@ -35,6 +35,8 @@
 		<form action="leaveGrant" method="post">
 			<input id="dateInput" type="date" name="leaveDay" value=""/> 
 			<input type="submit" value="연차 부여일자 설정">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> 
 		</form>
 		<p></p>
 	</div>
@@ -45,6 +47,8 @@
 		<form action="annualNumSetting" method="post">
 			<input id="textInput" type="text" name="annualNum" value="15"/><br>
 			<input type="submit" value="연차일수 설정">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> 
 		</form>
 		<p></p>
 	</div>
@@ -54,6 +58,8 @@
 	<div>	
 		<form action="annualLeave" method="post">
 			<input type="submit" value="관리자 수동 등록">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> 
 		</form>
 	</div>
 </div>

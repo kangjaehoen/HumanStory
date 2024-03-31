@@ -49,4 +49,10 @@ public class EmpServiceImpl implements EmpService {
 		return mapper.getTotalCount(cri);
 	}
 
+	@Override
+	public List<EmployeeVO> empEmailSend() {
+		log.info("휴가 촉진 대상 리스트 출력(서비스)");
+		return mapper.empEmailSend();
+	}
+
 }

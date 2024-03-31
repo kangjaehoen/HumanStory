@@ -20,4 +20,6 @@ public interface EmpService {
 	public boolean remove(String empnum);
 	
 	public int getTotal(EmpCriteria cri);
+	
+	public List<EmployeeVO> empEmailSend();
 }

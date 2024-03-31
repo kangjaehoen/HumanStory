@@ -17,7 +17,7 @@ public class TaskTestService {
 	@Autowired
 	private AnnualLeaveDTO dto;
 	
-	@Scheduled(fixedRate = 500000)
+	@Scheduled(fixedRate = 500000000)
 	public void TestScheduler() {
 		systemService.updateLeaveAnnual(dto);
 		System.out.println("자동부여 확인");

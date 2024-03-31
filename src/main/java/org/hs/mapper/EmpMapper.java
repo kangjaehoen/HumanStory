@@ -26,4 +26,6 @@ public interface EmpMapper{
 	public int getTotalCount(EmpCriteria cri);
 	
 	public void authdelete(String empNum);
+	
+	public List<EmployeeVO> empEmailSend();
 }
