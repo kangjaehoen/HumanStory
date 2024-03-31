@@ -1,11 +1,19 @@
+<%@include file="../includes/sideBar.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style>
+ 	#divBox{
+ 		margin-left: 300px;
+ 		margin-top : 100px;
+ 	
+ 	}
+ 	h2{
+ 		font-size: 30px;
+ 		font-weight: bold;
+ 		margin-bottom: 50px;
+ 	}
+ 
  
     input[type="date"] {
         appearance: none; 
@@ -20,15 +28,19 @@
     input[type="date"]:focus {
         border-color: #007bff; 
     }
+    
+    p{
+    color:red;
+    }
 </style>
 
 </head>
 <body>
 
-<div>
+<div id="divBox">
 
 	<div>
-		<h2> admin 휴가일수 부여 페이지</h2>
+		<h2> admin 휴가 설정</h2>
 	</div>
 	
 	<div>	
@@ -38,7 +50,10 @@
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> 
 		</form>
-		<p></p>
+		
+		
+	
+		<p>현재 연차 휴가 설정일은 ${day.leaveGrantDay } 입니다.</p>
 	</div>
 
 	
@@ -50,7 +65,7 @@
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> 
 		</form>
-		<p></p>
+		<p>현재 연차 부여일은 ${num.leaveNumSet }일입니다.(추가로 2년이상 근무시 +1일)</p>
 	</div>
 	
 	
@@ -81,4 +96,4 @@ $(function(){
 
 </script>
 
-</html>
+<%@include file="../includes/footer.jsp"%>

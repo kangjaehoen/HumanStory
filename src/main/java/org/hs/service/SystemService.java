@@ -9,5 +9,7 @@ public interface SystemService {
 	public int updateLeaveAnnual(AnnualLeaveDTO dto);
 	public int leaveGrnathDay(AnnualLeaveDTO dto);	
 	public int annulLeaveSet(AnnualLeaveDTO dto);
+	public LeaveVO leaveGrantDayApply(); 
+	public LeaveVO annulLeaveNumSetApply();
 	
 }

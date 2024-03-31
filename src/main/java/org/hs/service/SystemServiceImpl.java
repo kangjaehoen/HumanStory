@@ -65,4 +65,16 @@ public class SystemServiceImpl implements SystemService {
 		System.out.println("service : "+dto.getAnnualNum());
 		return mapper.annulLeaveNumSet(dto);
 	}
+
+	@Override
+	public LeaveVO leaveGrantDayApply() {
+		log.info("서비스 휴가일수 파악");
+		return mapper.leaveGrantDayApply();
+	}
+
+	@Override
+	public LeaveVO annulLeaveNumSetApply() {
+		log.info("부여일수 파악");
+		return mapper.annulLeaveNumSetApply();
+	}
 }
