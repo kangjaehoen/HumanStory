@@ -2,7 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <div class="p-1 sm:ml-64">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <style type="text/css">
@@ -367,7 +370,8 @@ $(document).ready(function() {
 					
 					formObj.append(str).submit();
 				});
-		
+		const token = $("meta[name='_csrf']").attr("content");
+		const header = $("meta[name='_csrf_header']").attr("content");
 
 		$("input[type='file']").change(function(e) {
 			var formData = new FormData();
@@ -388,6 +392,9 @@ $(document).ready(function() {
 				data : formData,
 				type : 'POST',
 				dataType : 'json',
+				 beforeSend : function(xhr) {
+				        xhr.setRequestHeader(header, token);
+				    },
 				success : function(result) {
 					console.log(result);
 					showUploadResult(result); //업로드 결과 처리 함수 

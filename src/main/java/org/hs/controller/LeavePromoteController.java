@@ -35,7 +35,7 @@ public class LeavePromoteController {
 
 	@PostMapping("register")
 	public String registerLeavePromote(LeavePromoteVO vo) {
-		log.info("휴가정책 등록 컨트롤러");
+		log.info("휴가촉진 등록 컨트롤러");
 		log.info(vo);
 
 		if (vo.getAttachList() != null) {
@@ -50,7 +50,7 @@ public class LeavePromoteController {
 
 	@GetMapping("list")
 	public void getLeavePromoteCharts(Model model, Criteria cri) {
-		log.info("휴가정책 게시판 리스트 컨트롤러");
+		log.info("휴가촉진 게시판 리스트 컨트롤러");
 		int total = service.listTotal(cri);
 		model.addAttribute("list", service.getLeavePromoteCharts(cri));
 		model.addAttribute("page", new PageDTO(cri, service.listTotal(cri)));
@@ -58,7 +58,7 @@ public class LeavePromoteController {
 
 	@GetMapping({ "get", "update" })
 	public void getLeavePromoteOne(@RequestParam("lprNum") int lprNum, Model model) {
-		log.info("휴가 정책 세부 조회");
+		log.info("휴가 촉진 세부 조회");
 		log.info(lprNum);
 		model.addAttribute("get", service.getLeavePromoteOne(lprNum));
 

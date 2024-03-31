@@ -33,10 +33,15 @@
 	</resultMap>
 
 	<select id="empProFile" resultType="org.hs.domain.EmpAttachVO">
-		SELECT * from EmpAttach
-		WHERE empNum = #{empNum}
+		SELECT * FROM EmpAttach WHERE
+		empNum = #{empNum}
 	</select>
 
+	<insert id="insertProFile"
+		parameterType="org.hs.domain.EmpAttachVO">
+		insert into EmpAttach(uuid, uploadpath, fileName, fileType, empNum)
+		values(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{empNum})
+	</insert>
 
 
 </mapper>

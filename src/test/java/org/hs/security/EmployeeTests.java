@@ -42,11 +42,11 @@ public class EmployeeTests {
 //				con = ds.getConnection();
 //				pstmt = con.prepareStatement(sql);
 //				
-//				pstmt.setString(1, "31"); // EMPN
-//				pstmt.setString(2, "아이유"); // EMPNAME
-//				pstmt.setString(3, "국민가수"); // JOB
+//				pstmt.setString(1, "3"); // EMPN
+//				pstmt.setString(2, "침착맨"); // EMPNAME
+//				pstmt.setString(3, "유튜버"); // JOB
 //				pstmt.setString(4, "01073334555"); // PHONENUM
-//				pstmt.setString(5, "2020-03-28"); // HIREDATE
+//				pstmt.setString(5, "1983-03-28"); // HIREDATE
 //				pstmt.setString(6, "gjsdms1244@gmail.com"); // EMAIL
 //				pstmt.setInt(7, 15); // ANNUALLEAVENUM
 //				pstmt.setString(8, "서울시 성북구"); // ADDRESS
@@ -55,7 +55,7 @@ public class EmployeeTests {
 //				pstmt.setInt(11, 1); // ADMINNUM
 //				pstmt.setInt(12, 1); // AUTHNUM
 //				pstmt.setInt(13, 1); // DEPTNUM
-//				pstmt.setString(14, pwencoder.encode("admin1")); // PW
+//				pstmt.setString(14, pwencoder.encode("3")); // PW
 //
 //				pstmt.executeUpdate();
 //			} catch (Exception e) {
@@ -76,6 +76,7 @@ public class EmployeeTests {
 //
 //			}
 //		}
+//}
 	
 
 	@Test
@@ -91,7 +92,7 @@ public class EmployeeTests {
 				pstmt = con.prepareStatement(sql);
 				
 			
-				pstmt.setString(1, "31");
+				pstmt.setString(1, "3");
 				pstmt.setString(2, "ROLE_ADMIN");
 			
 				pstmt.executeUpdate();

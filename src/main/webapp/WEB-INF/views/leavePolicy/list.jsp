@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 	
 .w-6 h-6 text-gray-800 dark:text-white{

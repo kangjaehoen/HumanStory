@@ -10,7 +10,59 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+	    (function(){
+	        var empNum = $("#empNumPf").val();
+	        console.log("직원 번호: " + empNum); 
+	        
+	        $.getJSON("/getEmpProfile", {empNum: empNum}, function(arr){	 
+	        	console.log("==============");
+			    console.log(arr);	
+	        	var str = "";
+	            
+	            $(arr).each(function(i, attach){	       
+			         //image type
+			         if(attach.fileType){
+			           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
+			           
+			           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+			           str += "<img src='/display?fileName="+fileCallPath+"'>";
+			           str += "</div>";
+			           str +"</li>";
+			         }else{
+			             
+			           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
+			           str += "<span> "+ attach.fileName+"</span><br/>";
+			           str += "<img src='/resources/img/attach.png'></a>";
+			           str += "</div>";
+			           str +"</li>";
+			         }
+			       });
+	            $("#EmpProFile ul").html(str); 
+	      
+	       
+	        });
+	    })();
+	    function showImage(fileCallPath){
+		    
+		    alert(fileCallPath);
+		    
+		    $(".bigPictureWrapper").css("display","flex").show();
+		    
+		    $(".bigPicture")
+		    .html("<img src='/display?fileName="+fileCallPath+"' >")
+		    .animate({width:'100%', height: '100%'}, 1000);
+		    
+		  }
+	    
+	    $("#profileMove").click(function(){
+	    	window.location.href="/emp/proFile"
+	    });
+	    
+	});
+	</script>
 
 
 
@@ -60,7 +112,7 @@
                   <span class="sr-only">Open user menu</span>
                   <img class="w-8 h-8 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
                   <p class="text-1xl text-white dark:text-white p-1 mr-2" role="none">
-                    <sec:authentication property="principal.emp.empName"/>
+                    
                    </p>
                    
                 </button>
@@ -104,9 +156,16 @@
      <div class="h-full px-4 pb-4 overflow-y-auto bg-gray-800 w-67 mt-4">
       
       <div class="flex justify-center items-center mt-8">
-         <img class="w-24 h-24 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
-      	 <img th:src="${userProfilePicturePath}" alt="Profile Picture" />
+       <!--   <img id="EmpProFile" class="w-24 h-24 rounded-full border-2" src="" alt=""> -->
+         <div id="EmpProFile" class="w-24 h-24 rounded-full border-2">
+         	<ul>
+         	
+         	</ul>
          </div>
+         	
+         	<input type="hidden" id="empNumPf" value="<sec:authentication property='principal.emp.empNum'/>">
+      	 	<input type="hidden" name="empName" value="<sec:authentication property="principal.emp.empName" />">
+      </div>
          
         
          <p class="text-xl text-white dark:text-white text-center font-bold mt-2" role="none"><sec:authentication property="principal.emp.empName" /></p>
@@ -115,7 +174,7 @@
          
  <!-- 프로필 하단 3개 아이콘 -->
 <div class="inline-flex rounded-md shadow-sm mt-3" role="group">
-   <button type="button" class="inline-flex flex-col items-center px-5 py-1 font-medium text-gray-400 bg-transparent border border-gray-700 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+   <button id="profileMove" type="button" class="inline-flex flex-col items-center px-5 py-1 font-medium text-gray-400 bg-transparent border border-gray-700 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
       <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
           <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
       </svg>

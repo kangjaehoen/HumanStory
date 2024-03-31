@@ -9,7 +9,7 @@
 
 
 
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<div class="navigation">
 			<div><a href="/">메인페이지</a></div>
 			<div><a href="/system/annualForm">휴가 일수 부여 설정</a></div>

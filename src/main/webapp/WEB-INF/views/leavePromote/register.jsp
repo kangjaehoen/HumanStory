@@ -3,6 +3,11 @@
 	pageEncoding="UTF-8"%>
 
 
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
  <div class="p-1 sm:ml-64">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <style type="text/css">
@@ -215,6 +220,8 @@ label{
 
 
 
+
+
 		<div class="navigation">
 			<div><a href="/">메인페이지 </a></div>
 			<div><a href="/system/annualForm">휴가 일수 부여 설정</a></div>
@@ -224,9 +231,11 @@ label{
 		</div>
 
 
+
 	<div class="border-gray-300 rounded-lg dark:border-gray-600 h-32 md:h-64">
-		<form role="form" action="register" method="post"
-			enctype="multipart/form-data">
+		<form role="form" action="register" method="post">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> 
 			<!-- 게시물 정보 입력 부분 -->
 		<!-- 	<div>
 				<label for="empNum">임시 사원번호:</label> <input type="text" id="empNum"
@@ -241,8 +250,8 @@ label{
 				<textarea id="summernote" name="detail" placeholder="내용을 입력해주세요."/></textarea>
 			</div>
 
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
+			<input id="empNumCheck" type="hidden" name="empNum"
+				value='<sec:authentication property="principal.emp.empNum"/>' />
 				
 			 <input id="submitBtn" type="submit" value="등록">
 		</form>
@@ -285,7 +294,10 @@ label{
 	</div>
 	<script type="text/javascript">
 	$(function() {
-
+			
+		const token = $("meta[name='_csrf']").attr("content")
+		const header = $("meta[name='_csrf_header']").attr("content");
+			
 		var formObj = $("form[role='form']");
 
 		$("#submitBtn").on("click",function(e) {
@@ -349,7 +361,10 @@ label{
 				}
 				formData.append("uploadFile", files[i]);
 			}
-
+			
+			var header = $("meta[name='_csrf_header']").attr('content');
+			var token = $("meta[name='_csrf']").attr('content');
+			
 			$.ajax({
 				url : '/uploadAjaxAction',
 				processData : false,
@@ -357,6 +372,10 @@ label{
 				data : formData,
 				type : 'POST',
 				dataType : 'json',
+				 beforeSend : function(xhr) {
+				        xhr.setRequestHeader(header, token);
+				    },
+				
 				success : function(result) {
 					console.log(result);
 					showUploadResult(result); //업로드 결과 처리 함수 
