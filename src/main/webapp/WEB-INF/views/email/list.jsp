@@ -71,13 +71,10 @@
 							<button id="actionsDropdownButton"
 								class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 								type="button">
-								<svg class="w-6 h-6 text-gray-800 dark:text-white"
-									aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-									width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round"
-										stroke-linejoin="round" stroke-width="2"
-										d="M14 8H4m8 3.5v5M9.5 14h5M4 6v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-5.032a1 1 0 0 1-.768-.36l-1.9-2.28a1 1 0 0 0-.768-.36H5a1 1 0 0 0-1 1Z" />
+							<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16v-5.5A3.5 3.5 0 0 0 7.5 7m3.5 9H4v-5.5A3.5 3.5 0 0 1 7.5 7m3.5 9v4M7.5 7H14m0 0V4h2.5M14 7v3m-3.5 6H20v-6a3 3 0 0 0-3-3m-2 9v4m-8-6.5h1"/>
 </svg>
+
 
 								이메일 발송
 							</button>
@@ -297,12 +294,16 @@
 	color: #2900c5;
 }
 
-#promoteNav {
+#empEmail {
 	color: #333;
 }
 
-#promoteNav:hover {
+#empEmail:hover {
 	color: #2900c5;
+}
+
+.flex items-center space-x-3 w-full md:w-auto{
+	margin-right: 5px;
 }
 </style>
 

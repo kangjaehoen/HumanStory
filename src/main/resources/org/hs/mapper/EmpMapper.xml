@@ -177,6 +177,6 @@
 	</delete>
 	
 	<select id="empEmailSend" resultType="org.hs.domain.EmployeeVO">
-		select * from employee where empNum > 0
+		select * from employee where annualLeaveNum > 0
 	</select>
 </mapper>
