@@ -90,7 +90,7 @@
            </button>
           <a href="https://flowbite.com" class="flex ms-2 md:me-0">
             <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-5 me-3" alt="HS Logo" /> -->
-            <img src="./resources/img/hs2.logo.png" class="h-16 me-2" alt="HS Logo" />
+            <img src="../../../resources/img/hs2.logo.png" class="h-16 me-2" alt="HS Logo" />
             <!-- <span class="self-center text-xl font-semibold sm:text-1xl whitespace-nowrap dark:text-white">HUMAN STORY</span> -->
           </a>
         </div>
@@ -119,7 +119,7 @@
                   <span class="sr-only">Open user menu</span>
                   <img class="w-8 h-8 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
                   <p class="text-1xl text-white dark:text-white p-1 mr-2" role="none">
-                    
+                      <sec:authentication property='principal.emp.empName'/>
                    </p>
                    
                 </button>
@@ -127,10 +127,10 @@
               <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-whitetext-white" id="dropdown-user">
                 <div class="px-4 py-3" role="none">
                   <p class="text-sm text-black hover:text-gray-900 dark:text-white" role="none">
-                    아이유는
+                        사원번호 : <sec:authentication property='principal.emp.empNum'/>
                   </p>
                   <p class="text-sm font-medium text-black hover:text-gray-900 truncate dark:text-gray-300" role="none">
-                    재헌이를 안좋아해
+                   사원명 : <sec:authentication property='principal.emp.empName'/>
                   </p>
                 </div>
                 <ul class="py-1" role="none">

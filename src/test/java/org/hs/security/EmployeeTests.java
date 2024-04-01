@@ -34,38 +34,36 @@ public class EmployeeTests {
 //				+ " ADDRESS, WORKDATE, BIRTHDATE, ADMINNUM, AUTHNUM,DEPTNUM,PW) "
 //				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 //
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
 //
-//			Connection con = null;
-//			PreparedStatement pstmt = null;
+//		try {
+//			con = ds.getConnection();
+//			pstmt = con.prepareStatement(sql);
 //
-//			try {
-//				con = ds.getConnection();
-//				pstmt = con.prepareStatement(sql);
-//				
-//				pstmt.setString(1, "3"); // EMPN
-//				pstmt.setString(2, "침착맨"); // EMPNAME
-//				pstmt.setString(3, "유튜버"); // JOB
-//				pstmt.setString(4, "01073334555"); // PHONENUM
-//				pstmt.setString(5, "1983-03-28"); // HIREDATE
-//				pstmt.setString(6, "gjsdms1244@gmail.com"); // EMAIL
-//				pstmt.setInt(7, 15); // ANNUALLEAVENUM
-//				pstmt.setString(8, "서울시 성북구"); // ADDRESS
-//				pstmt.setString(9, "121"); // WORKDATE
-//				pstmt.setString(10, "930101"); // BIRTHDATE
-//				pstmt.setInt(11, 1); // ADMINNUM
-//				pstmt.setInt(12, 1); // AUTHNUM
-//				pstmt.setInt(13, 1); // DEPTNUM
-//				pstmt.setString(14, pwencoder.encode("3")); // PW
+//			pstmt.setString(1, "18-73039089"); // EMPN
+//			pstmt.setString(2, "아이유"); // EMPNAME
+//			pstmt.setString(3, "가수"); // JOB
+//			pstmt.setString(4, "01073334555"); // PHONENUM
+//			pstmt.setString(5, "2019-04-02"); // HIREDATE
+//			pstmt.setString(6, "gjsdms1244@gmail.com"); // EMAIL
+//			pstmt.setInt(7, 15); // ANNUALLEAVENUM
+//			pstmt.setString(8, "서울시 성북구"); // ADDRESS
+//			pstmt.setString(9, "121"); // WORKDATE
+//			pstmt.setString(10, "930101"); // BIRTHDATE
+//			pstmt.setInt(11, 1); // ADMINNUM
+//			pstmt.setInt(12, 1); // AUTHNUM
+//			pstmt.setInt(13, 1); // DEPTNUM
+//			pstmt.setString(14, pwencoder.encode("1")); // PW
 //
-//				pstmt.executeUpdate();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			} finally {
-//				if (pstmt != null) {
-//					try {
-//						pstmt.close();
-//					} catch (Exception e) {
-//					}
+//			pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (pstmt != null) {
+//				try {
+//					pstmt.close();
+//				} catch (Exception e) {
 //				}
 //				if (con != null) {
 //					try {
@@ -76,45 +74,42 @@ public class EmployeeTests {
 //
 //			}
 //		}
+//	}
 //}
 	
-
 	@Test
 	public void testInsertEMPAuth() {
 		String sql = "insert into EMPLOYEE_AUTH (EMPNUM, auth) values(?,?)";
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			
-			
-			
-			try {
-				con = ds.getConnection();
-				pstmt = con.prepareStatement(sql);
-				
-			
-				pstmt.setString(1, "3");
-				pstmt.setString(2, "ROLE_ADMIN");
-			
-				pstmt.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (pstmt != null) {
-					try {
-						pstmt.close();
-					} catch (Exception e) {
-					}
-				}
-				if (con != null) {
-					try {
-						con.close();
-					} catch (Exception e) {
-					}
-				}
+		Connection con = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, "18-73039089");
+			pstmt.setString(2, "ROLE_ADMIN");
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+				}
 			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+				}
+			}
+
 		}
 	}
+}
 
 //	
 //	@Autowired
@@ -128,4 +123,3 @@ public class EmployeeTests {
 //		vo.getAuthList().forEach(authVO-> log.info(authVO));
 //	}
 //	
-

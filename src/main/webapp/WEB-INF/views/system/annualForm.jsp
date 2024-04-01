@@ -66,11 +66,11 @@ p {
 	color: #2900c5;
 }
 
-#policyNav {
+#giveDate {
 	color: #333;
 }
 
-#policyNav:hover {
+#giveDate:hover {
 	color: #2900c5;
 }
 </style>
@@ -84,7 +84,7 @@ p {
 			<a href="/">메인페이지</a>
 		</div>
 		<div>
-			<a href="/system/annualForm">휴가 일수 부여 설정</a>
+			<a id="giveDate" href="/system/annualForm">휴가 일수 부여 설정</a>
 		</div>
 		<div>
 			<a id="empEmail" href="/email/list">휴가 촉진 대상자</a>

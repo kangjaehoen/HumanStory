@@ -36,7 +36,7 @@
            </button>
           <a href="https://flowbite.com" class="flex ms-2 md:me-0">
             <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-5 me-3" alt="HS Logo" /> -->
-            <img src="hs2.logo.png" class="h-16 me-2" alt="HS Logo" />
+            <img src="../../resources/img/hs2.logo.png" class="h-16 me-2" alt="HS Logo" />
             <!-- <span class="self-center text-xl font-semibold sm:text-1xl whitespace-nowrap dark:text-white">HUMAN STORY</span> -->
           </a>
         </div>
@@ -66,7 +66,7 @@
                   <img class="w-8 h-8 rounded-full border-2" src="profile.png" alt="user photo"> 
                  
                   <p class="text-1xl text-white dark:text-white p-1 mr-2" role="none">
-                     아이유
+                     <sec:authentication property='principal.emp.empName'/>
                    </p>
                    
                 </button>
