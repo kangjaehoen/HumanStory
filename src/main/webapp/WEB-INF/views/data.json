@@ -1,0 +1,32 @@
+[
+  {
+      "employeeId": 122,
+      "employeeName": "John Doe",
+      "startDate": "2024-03-01",
+      "endDate": "2024-03-05"
+  },
+  {
+      "employeeId": 233,
+      "employeeName": "Jane Smith",
+      "startDate": "2024-03-01",
+      "endDate": "2024-03-04"
+  },
+  {
+    "employeeId": 344,
+    "employeeName": "Jane Smith",
+    "startDate": "2024-03-10",
+    "endDate": "2024-03-11"
+  },
+  {
+    "employeeId": 344,
+    "employeeName": "Jane Smith",
+    "startDate": "2024-03-10",
+    "endDate": "2024-03-11"
+  },
+  {
+    "employeeId": 344,
+    "employeeName": "Jane Smith",
+    "startDate": "2024-03-10",
+    "endDate": "2024-03-11"
+  }
+]

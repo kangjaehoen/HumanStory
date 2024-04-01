@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hs.mapper.CalendarMapper">	
+	
+	
+	
+	<select id="getList" resultType="org.hs.domain.CalendarVO">
+	<![CDATA[
+		select * from employee where empnum > 0 
+		]]>  <!-- ![CDATA[ 내용 ]] 을 사용하면 <,>를 사용할 수 있다. -->
+	</select>
+	
+	<insert id="insert">
+	insert into employee (empNum,deptNum,startDate,endDate,leaveType,leaveReason,requestDate)
+	values (#{empNum}, #{deptNum}, #{startDate}, #{endDate}, #{leaveType}, #{leaveReason}, SYSDATE)
+	</insert>	
+
+
+
+</mapper>
+
