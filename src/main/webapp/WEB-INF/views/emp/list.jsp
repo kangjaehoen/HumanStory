@@ -34,6 +34,10 @@ td {
 th {
 	margin: 20px;
 }
+
+button{
+	margin:5px;
+}
 </style>
 <div class="p-1 sm:ml-64 mt-32">
 
@@ -91,7 +95,7 @@ th {
 								class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">권한
 								부여</button>
 						</form>
-
+						<button id='removeBtn' type="submit" data-oper="remove" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Remove</button>
 
 
 					</div>
@@ -286,14 +290,14 @@ th {
 							$("#myModal").modal("show");
 						}
 
+							 
 						 $(".dropdown-item").on("click", function(event) {
-
 							event.preventDefault();
 							var selectedAuth = $(this).attr("data-value");
 							var empnum=$(".empCheckbox:checked").val();
 							$("#authDropdown").text($(this).text());
 							$("#selectedAuth").val(selectedAuth);
-						}; 
+						}); 
 						
 
 						$("#regBtn").on("click", function() {
@@ -322,6 +326,30 @@ th {
 
 									self.location = "/emp/modify?empNum="
 											+ selectedEmpNum;
+
+								});
+						$("#regBtn").on(
+								"click",
+								function() {
+									e.preventDefault();
+									var operation=$(this).data("oper");
+									
+									var selectedEmpNums = [];
+									$(".empCheckbox:checked").each(function() {
+										selectedEmpNums.push($(this).val());
+									});
+									if (selectedEmpNums.length == 0) {
+										console.log("수정할 직원을 선택해주세요.");
+										return;
+									}
+									
+									if(operation=== 'remove'){
+										formObj.attr("action","/emp/remove");
+									}
+
+									var selectedEmpNum = selectedEmpNums[0];
+
+									self.location = "/emp/list";
 
 								});
 						
