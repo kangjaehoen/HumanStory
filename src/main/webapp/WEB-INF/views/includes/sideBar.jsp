@@ -319,7 +319,7 @@
                 
                 </a>
                 <div x-show="open" class="bg-gray-800 rounded-lg">
-                    <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="#">Employees</a>
+                    <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="/leaveSystem/src/main/webapp/WEB-INF/views/calendar.jsp">Employees</a>
                     <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="#">Department</a>
                 </div>
              </li>
