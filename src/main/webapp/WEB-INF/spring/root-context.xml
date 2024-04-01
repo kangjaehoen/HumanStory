@@ -21,19 +21,21 @@
 		<property name="password" value="1234" />
 	</bean>
 
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-		destroy-method="close">
-		<constructor-arg ref="hikariConfig" />
+		<!-- DB에서 참조할 Data -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"> 
+		<constructor-arg ref="hikariConfig"/><!-- 연결할 DB 주소 -->
 	</bean>
 
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+	<!-- DB와 mybatis와 연결 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 
-	<bean id="transactionManager"
+	<!-- 트랜잭션 매니저 -->
+	<!-- applicationContext.xml -->
+	<bean id="transactionManager" 
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+	    <property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	    <!-- Root Context: defines shared resources visible to all other web components -->
@@ -63,7 +65,13 @@
 	
 	<context:component-scan base-package="org.hs.service"/>
 	
+<<<<<<< HEAD
+=======
+	<context:component-scan base-package="org.hs.controller"/>
+>>>>>>> refs/heads/feature/approve
 	
  	<tx:annotation-driven/>
-
+	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy> <!-- 프록시 적용 -->		
+	
 </beans>

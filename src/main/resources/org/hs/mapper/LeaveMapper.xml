@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hs.mapper.LeaveMapper">
+
+	<select id="getList" resultType="org.hs.domain.LeaveVO">
+	<![CDATA[
+		select * from leave where leaveNum > 0 
+		]]>  <!-- ![CDATA[ 내용 ]] 을 사용하면 <,>를 사용할 수 있다. -->
+	</select>
+	<select id="getList2" resultType="org.hs.domain.LeaveVO2">
+	<![CDATA[
+		select * from leave where leaveNum > 0 
+		]]>  <!-- ![CDATA[ 내용 ]] 을 사용하면 <,>를 사용할 수 있다. -->
+	</select>
+	<select id="getListEmp" resultType="org.hs.domain.EmployeeVO2">
+	<![CDATA[
+		select * from employee where empNum > 0 
+		]]>  <!-- ![CDATA[ 내용 ]] 을 사용하면 <,>를 사용할 수 있다. -->
+	</select>
+
+	<select id="getListWithPaging"
+		resultType="org.hs.domain.LeaveVO">
+		<![CDATA[
+			select
+				leavenum ,empnum,leavetype,leavereason,
+				leavedays,startdate,enddate,requestdate,updatedate
+			from
+				(
+					select /*+INDEX_DESC(leave pk_leave)*/
+						rownum rn, leavenum ,empnum,leavetype,leavereason,
+				leavedays,startdate,enddate,requestdate,updatedate
+					from leave
+					where 
+					rownum <= #{pageNum} * #{amount}
+				) 
+			where rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+
+	<insert id="insertSelectKey">
+	    <selectKey keyProperty="leaveNum" order="BEFORE" resultType="java.lang.Long">
+	        select leavenum_seq.nextval from dual
+	    </selectKey>
+	    insert into leave 
+	    (leavenum,
+	     empnum,
+	      leavetype,
+	       leavereason,
+	        leavedays,
+	         startdate,
+	          enddate,
+	           requestdate)
+	    values 
+	    (#{leaveNum},
+	     #{empNum},
+	      #{leaveType},
+	       #{leaveReason},
+	        #{leaveDays},
+	         #{startDate},
+	          #{endDate},
+	           sysdate)
+	</insert>
+
+	<select id="getLeaveOne" resultType="org.hs.domain.LeaveVO">
+		select * from leave where leavenum =
+		#{leaveNum}
+	</select>
+
+	<update id="update">
+	    update leave set 
+	        leavetype = #{leaveType},
+	        leavereason = #{leaveReason},
+	        leavedays = #{leaveDays},
+	        startdate = #{startDate},
+	        enddate = #{endDate},
+	        requestdate = sysdate, 
+	        UPDATEDATE = sysdate
+	    where leaveNum = #{leaveNum}
+	</update>
+
+	<delete id="delete">
+	    delete leave where LEAVENUM = #{leaveNum}
+	</delete>
+
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[select count(*) from leave where 
+		leaveNum > 0]]>
+	</select>
+
+</mapper>
+
+
+
