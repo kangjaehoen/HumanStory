@@ -6,7 +6,6 @@ import org.hs.domain.Criteria;
 import org.hs.domain.LeaveAndEmployeeVO;
 import org.hs.domain.LeaveDTO;
 import org.hs.domain.LeaveVO;
-import org.hs.domain.LeaveVO2;
 
 public interface LeaveService {
 	
