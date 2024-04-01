@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,66 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
-	$(function(){
-	    (function(){
-	        var empNum = $("#empNumPf").val();
-	        console.log("직원 번호: " + empNum); 
-	        
-	        $.getJSON("/getEmpProfile", {empNum: empNum}, function(arr){	 
-	        	console.log("==============");
-			    console.log(arr);	
-	        	var str = "";
-	            
-	            $(arr).each(function(i, attach){	       
-			         //image type
-			         if(attach.fileType){
-			           var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/s_"+attach.uuid +"_"+attach.fileName);
-			           
-			           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
-			           str += "<img src='/display?fileName=" + fileCallPath + "' style='border-radius: 50%;'>";
-			           str += "</div>";
-			           str +"</li>";
-			         }else{
-			             
-			           str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"' ><div>";
-			           str += "<span> "+ attach.fileName+"</span><br/>";
-			           str += "<img src='/resources/img/attach.png'></a>";
-			           str += "</div>";
-			           str +"</li>";
-			         }
-			       });
-	            $("#EmpProFile ul").html(str); 
-	      
-	       
-	        });
-	    })();
-	    function showImage(fileCallPath){
-		    
-		    alert(fileCallPath);
-		    
-		    $(".bigPictureWrapper").css("display","flex").show();
-		    
-		    $(".bigPicture")
-		    .html("<img src='/display?fileName="+fileCallPath+"' >")
-		    .animate({width:'100%', height: '100%'}, 1000);
-		    
-		  }
-	    
-	    $("#profileMove").click(function(){
-	    	window.location.href="/emp/proFile"
-	    });
-	    
-	});
-	</script>
-	<style>
-	#EmpProFile{
-		
-	
-	}
-	
-	</style>
+
 
 
 
@@ -119,7 +58,7 @@
                   <span class="sr-only">Open user menu</span>
                   <img class="w-8 h-8 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
                   <p class="text-1xl text-white dark:text-white p-1 mr-2" role="none">
-                    
+                     강재헌
                    </p>
                    
                 </button>
@@ -138,7 +77,7 @@
                     <a href="#" class="block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-whitetext-white dark:hover:text-white" role="menuitem">Dashboard</a>
                   </li>
                   <li>
-                    <a href="../includes/leavePolicy/list" class="block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-whitetext-white dark:hover:text-white" role="menuitem">Settings</a>
+                    <a href="#" class="block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-whitetext-white dark:hover:text-white" role="menuitem">Settings</a>
                   </li>
                   <li>
                     <a href="#" class="block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-whitetext-white dark:hover:text-white" role="menuitem">Document</a>
@@ -163,25 +102,17 @@
      <div class="h-full px-4 pb-4 overflow-y-auto bg-gray-800 w-67 mt-4">
       
       <div class="flex justify-center items-center mt-8">
-       <!--   <img id="EmpProFile" class="w-24 h-24 rounded-full border-2" src="" alt=""> -->
-         <div id="EmpProFile" class="w-24 h-24 rounded-full border-2">
-         	<ul>
-         	
-         	</ul>
+         <img class="w-24 h-24 rounded-full border-2" src="./resources/img/profile.png" alt="user photo">
          </div>
-         	
-         	<input type="hidden" id="empNumPf" value="<sec:authentication property='principal.emp.empNum'/>">
-      	 	<input type="hidden" name="empName" value="<sec:authentication property="principal.emp.empName" />">
-      </div>
          
         
-         <p class="text-xl text-white dark:text-white text-center font-bold mt-2" role="none"><sec:authentication property="principal.emp.empName" /></p>
-         <p class="text-sm text-white dark:text-white text-center" role="none"><sec:authentication property="principal.emp.email" /></p>
+         <p class="text-xl text-white dark:text-white text-center font-bold mt-2" role="none">강재헌</p>
+         <p class="text-sm text-white dark:text-white text-center" role="none">XXXX@KOTSTA270.COM</p>
          
          
  <!-- 프로필 하단 3개 아이콘 -->
 <div class="inline-flex rounded-md shadow-sm mt-3" role="group">
-   <button id="profileMove" type="button" class="inline-flex flex-col items-center px-5 py-1 font-medium text-gray-400 bg-transparent border border-gray-700 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+   <button type="button" class="inline-flex flex-col items-center px-5 py-1 font-medium text-gray-400 bg-transparent border border-gray-700 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
       <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
           <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
       </svg>
@@ -282,7 +213,7 @@
                 
                 </a>
                 <div x-show="open" class="bg-gray-800 rounded-lg">
-                    <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="/leaveSystem/src/main/webapp/WEB-INF/views/calendar">Calendar</a>
+                    <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="#">Calendar</a>
                     <a class="py-2 px-16 block text-sm text-white hover:bg-blue-500 hover:text-gray-900 hover:bg-white rounded-lg text-center" href="#">PTO List</a>
                 </div>
              </li>
@@ -339,7 +270,7 @@
 
            <!-- Logout -->
            <li>
-              <a href="leavePolicy/list" class="flex items-center p-2 text-white hover:text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <a href="#" class="flex items-center p-2 text-white hover:text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <svg class="w-6 h-6 text-gray-100 transition duration-75 dark:text-gray-400 group-hover:text-white hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" d="M9.586 2.586A2 2 0 0 1 11 2h2a2 2 0 0 1 2 2v.089l.473.196.063-.063a2.002 2.002 0 0 1 2.828 0l1.414 1.414a2 2 0 0 1 0 2.827l-.063.064.196.473H20a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.089l-.196.473.063.063a2.002 2.002 0 0 1 0 2.828l-1.414 1.414a2 2 0 0 1-2.828 0l-.063-.063-.473.196V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.089l-.473-.196-.063.063a2.002 2.002 0 0 1-2.828 0l-1.414-1.414a2 2 0 0 1 0-2.827l.063-.064L4.089 15H4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.09l.195-.473-.063-.063a2 2 0 0 1 0-2.828l1.414-1.414a2 2 0 0 1 2.827 0l.064.063L9 4.089V4a2 2 0 0 1 .586-1.414ZM8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" clip-rule="evenodd"/>
                 </svg>
