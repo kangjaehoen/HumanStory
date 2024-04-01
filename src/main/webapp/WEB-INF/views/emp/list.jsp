@@ -23,8 +23,16 @@
 	display: none;
 }
 
-td{
-margin: 5px;
+table {
+	border: 2px;
+}
+
+td {
+	margin: 5px;
+}
+
+th {
+	margin: 20px;
 }
 </style>
 <div class="p-1 sm:ml-64 mt-32">
@@ -32,7 +40,7 @@ margin: 5px;
 	<div class="flex justify-center">
 		<h1 class="text-center text-3xl font-bold">사원 관리</h1>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="flex justify-between items-center mt-4">
@@ -47,8 +55,16 @@ margin: 5px;
 						<button id='modiBtn' type="button"
 							class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">직원
 							정보 수정</button>
-						<%-- <form id="authForm" action="authGive" method="POST"
+						<form id="authForm" action="authGive" method="POST"
 							class="max-w-sm mx-auto">
+							
+							
+							<div class="form-group">
+								<label>empNum</label> <input class="form-control" name='empNum'
+									value='<c:out value="${auth.empNum }"/>'>
+							</div>
+
+
 							<div class="mb-4">
 								<label for="authDropdown"
 									class="block text-sm font-medium text-gray-700">권한 선택</label>
@@ -74,7 +90,7 @@ margin: 5px;
 							<button type="submit" id="authBtn"
 								class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">권한
 								부여</button>
-						</form> --%>
+						</form>
 
 
 
@@ -252,6 +268,7 @@ margin: 5px;
 <script type="text/javascript">
 	$(document)
 			.ready(
+					var formObj=${"form"};
 					function() {
 						$("#myModal").modal("hide");
 						var result = '<c:out value="${result}"/>';
@@ -269,14 +286,14 @@ margin: 5px;
 							$("#myModal").modal("show");
 						}
 
-						/* $(".dropdown-item").on("click", function(event) {
+						 $(".dropdown-item").on("click", function(event) {
 
 							event.preventDefault();
 							var selectedAuth = $(this).attr("data-value");
 							var empnum=$(".empCheckbox:checked").val();
 							$("#authDropdown").text($(this).text());
 							$("#selectedAuth").val(selectedAuth);
-						}; */
+						}; 
 						
 
 						$("#regBtn").on("click", function() {
@@ -310,8 +327,13 @@ margin: 5px;
 						
 						$("#authBtn").on(
 								"click",
-								function() {
-
+								function(e) {
+									e.preventDefault();
+									
+									var operation =$(this).data("oper");
+									
+									console.log(operation);
+									
 									var selectedEmpNums = [];
 									$(".empCheckbox:checked").each(function() {
 										selectedEmpNums.push($(this).val());
@@ -327,8 +349,8 @@ margin: 5px;
 
 									var selectedEmpNum = selectedEmpNums[0];
 
-
-								});
+									formObj.submit();
+								}); 
 
 						var actionForm = $("#actionForm");
 
