@@ -37,6 +37,13 @@ public class CalendarController {
 	public void main() {}
 	
 	
+	@GetMapping("/calendar")
+	public void cal() {
+		
+		
+	}
+	
+	
 	
 	
 }
