@@ -25,18 +25,18 @@ public class AuthController {
 	@Autowired
 	private EmpService service;
 //	@RequestParam("selectedEmpNum") String selectedEmpNum
-	 @PostMapping("/authGive")
-	    public String giveAuth(@RequestParam("selectedAuth") String selectedAuth,@RequestParam("empNum") String empNum) {
-	        // 여기서 선택된 권한을 이용하여 데이터베이스에 값을 입력하고,
-	        // 다른 처리를 수행합니다.
-		 log.info("Received empNum: " + empNum);
-	        AuthVO vo = new AuthVO();
-	        vo.setEmpNum(empNum); // 예시로 사용한 "5"를 실제 사용자 아이디로 변경
-	        vo.setAuth(selectedAuth);
-	        
-	        service.authGive(vo);
-
-	        return "redirect:/emp/list"; // 처리가 완료된 후에는 리다이렉트할 페이지를 지정합니다.
-	    }
+//	 @PostMapping("/authGive")
+//	    public String giveAuth(@RequestParam("selectedAuth") String selectedAuth,@RequestParam("empNum") String empNum) {
+//	        // 여기서 선택된 권한을 이용하여 데이터베이스에 값을 입력하고,
+//	        // 다른 처리를 수행합니다.
+//		 log.info("Received empNum: " + empNum);
+//	        AuthVO vo = new AuthVO();
+//	        vo.setEmpNum(empNum); // 예시로 사용한 "5"를 실제 사용자 아이디로 변경
+//	        vo.setAuth(selectedAuth);
+//	        
+//	        service.authGive(vo);
+//
+//	        return "redirect:/emp/list"; // 처리가 완료된 후에는 리다이렉트할 페이지를 지정합니다.
+//	    }
 	
 }

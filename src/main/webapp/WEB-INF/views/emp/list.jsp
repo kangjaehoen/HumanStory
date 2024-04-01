@@ -5,8 +5,6 @@
 <%@include file="../includes/sideBar.jsp"%>
 
 
-
-
 <link rel="dns-prefetch" href="//unpkg.com" />
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 <link rel="stylesheet"
@@ -19,9 +17,14 @@
 
 
 
+
 <style>
 [x-cloak] {
 	display: none;
+}
+
+td{
+margin: 5px;
 }
 </style>
 <div class="p-1 sm:ml-64 mt-32">
@@ -29,6 +32,7 @@
 	<div class="flex justify-center">
 		<h1 class="text-center text-3xl font-bold">사원 관리</h1>
 	</div>
+	
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="flex justify-between items-center mt-4">
@@ -37,13 +41,13 @@
 
 					<div>
 						<button id='regBtn' type="button"
-							class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">신규
-							직원 등록</button>
+							class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">
+							신규 직원 등록</button>
 
 						<button id='modiBtn' type="button"
 							class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">직원
 							정보 수정</button>
-						<form id="authForm" action="authGive" method="POST"
+						<%-- <form id="authForm" action="authGive" method="POST"
 							class="max-w-sm mx-auto">
 							<div class="mb-4">
 								<label for="authDropdown"
@@ -70,7 +74,7 @@
 							<button type="submit" id="authBtn"
 								class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">권한
 								부여</button>
-						</form>
+						</form> --%>
 
 
 
@@ -113,7 +117,6 @@
 						<th>체크박스</th>
 						<th>번호</th>
 						<th>사원명</th>
-						<th>비밀번호</th>
 						<th>직책</th>
 						<th>휴대폰번호</th>
 						<th>고용일</th>
@@ -135,9 +138,6 @@
 						<td
 							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"><c:out
 								value="${emp.empName}" /></td>
-						<td
-							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"><c:out
-								value="${emp.pw}" /></td>
 						<td
 							class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"><c:out
 								value="${emp.job}" /></td>
@@ -242,19 +242,10 @@
 
 </div>
 <!--  end panel-body -->
-</div>
-<!-- end panel -->
-</div>
-</div>
+
 <!-- /.row -->
 
-<script>
-	document.getElementById('dropdownMenuButton').addEventListener('click',
-			function() {
-				var dropdownMenu = document.getElementById('dropdownMenu');
-				dropdownMenu.classList.toggle('hidden');
-			});
-</script>
+
 
 
 
@@ -278,14 +269,14 @@
 							$("#myModal").modal("show");
 						}
 
-						$(".dropdown-item").on("click", function(event) {
+						/* $(".dropdown-item").on("click", function(event) {
 
 							event.preventDefault();
 							var selectedAuth = $(this).attr("data-value");
 							var empnum=$(".empCheckbox:checked").val();
 							$("#authDropdown").text($(this).text());
 							$("#selectedAuth").val(selectedAuth);
-						};
+						}; */
 						
 
 						$("#regBtn").on("click", function() {
@@ -399,6 +390,5 @@
 
 					});
 </script>
-</div>
 <%@include file="../includes/footer.jsp"%>
 
