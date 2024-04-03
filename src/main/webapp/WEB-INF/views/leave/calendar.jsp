@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%@include file="sideBar.jsp"%>
+<%@include file="../includes/sideBar.jsp"%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
@@ -36,13 +36,10 @@
 <script>
  
 	 $(document).ready(function() {
-	        // leaveType의 값이 변경될 때마다 leaveDays 값을 조절합니다.
-	
 	        // 휴가 시작일과 종료일이 변경될 때마다 총 휴가일수를 계산합니다.
 	        $('#startDate, #endDate,#leaveType').change(function() {
 	            calculateLeaveDays();
 	        });
-	
 	        function calculateLeaveDays() {
 	        	console.log("시작");
 	        	var startDateValue = $('#startDate').val(); // input 요소의 값을 가져옴
@@ -627,9 +624,7 @@
 	                        // 오류 처리 로직 추가
 	                    });
 	            }
-
 ,
-
 	            events: [
 	                <c:forEach items="${list}" var="leave">
 	                    {
