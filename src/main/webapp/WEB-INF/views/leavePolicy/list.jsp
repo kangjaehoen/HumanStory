@@ -1,12 +1,14 @@
-<%@include file="../includes/sideBar.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="sideBar.jsp"%>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+/leaveSystem/src/main/webapp/WEB-INF/views/includes/sideBar.jsp
+/leaveSystem/src/main/webapp/WEB-INF/views/leavePolicy/list.jsp
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
@@ -294,4 +296,4 @@
 		</form>
 	</div>
 
-<%@include file="../includes/footer.jsp"%>
+<%@include file="footer.jsp"%>

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@include file ="sideBar.jsp" %>
-
+<%@include file ="/add/sideBar.jsp" %>
         <link rel="dns-prefetch" href="//unpkg.com" />
         <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
@@ -413,4 +412,4 @@
 </div>
 
 
-<%@include file ="footer.jsp" %>
+<%@include file ="/add/footer.jsp" %>

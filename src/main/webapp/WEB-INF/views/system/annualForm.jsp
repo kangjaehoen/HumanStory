@@ -1,6 +1,6 @@
-<%@include file="../includes/sideBar.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="sideBar.jsp"%>
 
 <style>
 
@@ -275,4 +275,4 @@ p {
 	});
 </script>
 
-<%@include file="../includes/footer.jsp"%>
+<%@include file="footer.jsp"%>

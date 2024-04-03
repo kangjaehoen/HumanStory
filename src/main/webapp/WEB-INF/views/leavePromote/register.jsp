@@ -1,6 +1,8 @@
-<%@include file="../includes/sideBar.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="sideBar.jsp"%>
 
 
 <meta name="_csrf" content="${_csrf.token}"/>
@@ -272,6 +274,10 @@ label{
 								<div class='uploadResult'>
 									<ul>
 
+
+
+
+
 									</ul>
 								</div>
 							
@@ -457,4 +463,4 @@ label{
 	});
 	</script>
 	</div>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="footer.jsp"%>

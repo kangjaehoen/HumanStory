@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%@include file ="sideBar.jsp" %>
@@ -413,4 +413,4 @@
 </div>
 
 
-<%@include file ="footer.jsp" %>
+<%@include file ="footer.jsp" %> --%>
